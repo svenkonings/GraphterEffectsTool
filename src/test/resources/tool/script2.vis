@@ -1,3 +1,0 @@
-node(X) -> shape(X,square).
-shape(X,square) -> colour(X,red).
-edge(S,T) -> line(S,T).
