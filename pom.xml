@@ -163,7 +163,7 @@
         <dependency>
             <groupId>com.github.meteoorkip</groupId>
             <artifactId>GraphterEffects</artifactId>
-            <version>1.0</version>
+            <version>1.0.1</version>
         </dependency>
         <dependency>
             <groupId>com.airhacks</groupId>
