@@ -25,6 +25,7 @@ import com.github.meteoorkip.utils.Pair;
 
 import javax.inject.Inject;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -241,7 +242,14 @@ public class ButtonBarPresenter implements Initializable, Observer {
         contextMenu.getItems().addAll(showAsImage, showAsText);
         showAsImage.setOnAction(event -> {
             Path selectedGraphPath = FileModel.getInstance().getSelectedGraph();
-            GeneratorRunnable generatorRunnable = new GeneratorRunnable(Paths.get(getClass().getClassLoader().getResource("defaultvisualization.vis").getFile().substring(1)), selectedGraphPath);
+            GeneratorRunnable generatorRunnable = null;
+            try {
+                // TODO: Pim, maak van getResource een methode in FileUtils die de inputstream uitleest en een String returned
+                generatorRunnable = new GeneratorRunnable(Paths.get(getClass().getClassLoader().getResource("defaultvisualization.vis").toURI()), selectedGraphPath);
+            } catch (URISyntaxException e) {
+                // TODO: Probably do something here
+                e.printStackTrace();
+            }
             new Thread(generatorRunnable).start();
         });
         showAsText.setOnAction(event -> {
