@@ -86,7 +86,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>App</mainClass>
+                            <mainClass>com.github.meteoorkip.App</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
