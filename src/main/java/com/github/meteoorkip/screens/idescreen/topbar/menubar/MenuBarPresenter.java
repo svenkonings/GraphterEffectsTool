@@ -134,7 +134,7 @@ public class MenuBarPresenter implements Initializable {
         }
         String selectedGraphName = comboBox.getSelectionModel().getSelectedItem().toString();
         Path selectedGraphPath = FileModel.getInstance().getGraphPathMap().get(selectedGraphName);
-        GeneratorRunnable generatorRunnable = new GeneratorRunnable(Paths.get("defaultvisualization.vis"), selectedGraphPath);
+        GeneratorRunnable generatorRunnable = new GeneratorRunnable(Paths.get(getClass().getClassLoader().getResource("defaultvisualization.vis").getFile().substring(1)), selectedGraphPath);
         new Thread(generatorRunnable).start();
     }
 

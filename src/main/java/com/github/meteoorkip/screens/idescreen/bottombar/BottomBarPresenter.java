@@ -117,6 +117,7 @@ public class BottomBarPresenter implements Initializable, Observer, LogListener{
                 break;
             case ERROROCCURED:
                 Platform.runLater(() -> generationResultTextArea.appendText(GenerationModel.getInstance().getGeneration().getException() + "\n"));
+                GenerationModel.getInstance().getGeneration().getException().printStackTrace();
                 break;
             case NOSOLUTION:
                 measures = GenerationModel.getInstance().getGeneration().getSolveResults().getModel().getSolver().getMeasures().toString();
