@@ -37,7 +37,7 @@ public class GraafVisEditorPresenter implements Initializable {
 
     private static final String PAREN_PATTERN = "[()]";
     private static final String BRACE_PATTERN = "[{}]";
-    private static final String BRACKET_PATTERN = "[\\[]]";
+    private static final String BRACKET_PATTERN = "[\\[\\]]";
 
     //Patterns concerning the logical flow
     private static final String DOT_PATTERN = "\\.";
@@ -50,7 +50,7 @@ public class GraafVisEditorPresenter implements Initializable {
     //
 
     private static final String COMMENT_PATTERN = "//[^\n]*" + "|" + "/\\*(.|\\R)*?\\*/";
-    private static final String PREDICATE_PATTERN = "[^\\W]*(?=[({])";
+    private static final String PREDICATE_PATTERN = "([^\\W]*(?=[({]))|(`[^\\(]*`(?=[({]))";
 
 
     private static final Pattern PATTERN = Pattern.compile(
